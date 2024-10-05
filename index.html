@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOVE YOU:3</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden; 
+            background-color: #ffe6e6; 
+        }
+
+        #container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        #tableContainer {
+            position: absolute; 
+            top: 50px;
+            left: 50px;
+            transition: top 0.5s, left 0.5s;
+            background-color: #fff0f5;
+            padding: 10px;
+            border-radius: 10px;
+            border: 2px solid #ff99cc;
+            box-shadow: 0px 0px 15px rgba(255, 182, 193, 0.8); 
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #ffb6c1;
+        }
+
+        th {
+            background-color: #ffcccb;
+        }
+
+        td a {
+            color: #c71585;
+            text-decoration: none;
+        }
+
+        td a:hover {
+            color: #ff69b4; 
+        }
+
+        #imageContainer {
+            display: none; 
+            margin-top: 20px;
+        }
+
+        #imageContainer img {
+            width: 300px;
+            height: auto;
+            border-radius: 15px;
+            border: 2px solid #ff99cc;
+            opacity: 0;
+            animation: fadeIn 2s forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @media (max-width: 600px) {
+            table, th, td {
+                font-size: 14px; 
+            }
+
+            #imageContainer img {
+                width: 200px;
+            }
+        }
+    </style>
+    <script>
+        function getRandomPosition(max) {
+            return Math.floor(Math.random() * max);
+        }
+
+        function checkAnswer(answer) {
+            var result = "";
+            var tableContainer = document.getElementById("tableContainer");
+            var imageContainer = document.getElementById("imageContainer");
+            var screenHeight = window.innerHeight;
+            var screenWidth = window.innerWidth;
+
+            if (answer === "yes") {
+                result = "Anda memilih Yes.";
+                imageContainer.style.display = "block";
+            } else if (answer === "no") {
+                result = "Anda memilih No.";
+                var randomTop = getRandomPosition(screenHeight - 150);
+                var randomLeft = getRandomPosition(screenWidth - 200);
+                tableContainer.style.top = randomTop + "px";
+                tableContainer.style.left = randomLeft + "px";
+                imageContainer.style.display = "none";
+            }
+
+            document.getElementById("output").innerText = result;
+        }
+    </script>
+</head>
+<body>
+
+    <div id="container">
+        <div id="tableContainer">
+            <table>
+                <h1>Maafin Aku Ya Neaaaa:3</h1>
+                <tr>
+                    <td><a href="#" onclick="checkAnswer('yes')">YAAAAAAAA :3</a></td>
+                </tr>
+                <tr>
+                    <td><a href="#" onclick="checkAnswer('no')">GA.</a></td>
+                </tr>
+            </table>
+        </div>
+        <div id="imageContainer">
+            <img src="WhatsApp Image 2024-10-05 at 11.37.08.jpeg" alt="Romantic Image">
+        </div>
+    </div>
+
+</body>
+</html>
